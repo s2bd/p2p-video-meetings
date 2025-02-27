@@ -372,4 +372,21 @@ window.onload = () => {
     }
 };
 
+window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const peerId = params.get("id");
+      if (peerId) {
+          const inputField = document.getElementById("peer-id-input");
+          if (inputField) {
+              inputField.value = peerId;
 
+              // Add peer ID automatically
+              setTimeout(() => {
+                  const addButton = document.querySelector("button[onclick='addPeer()']");
+                  if (addButton) {
+                      addButton.click();
+                  }
+              }, 500); // delay
+          }
+      }
+  };
